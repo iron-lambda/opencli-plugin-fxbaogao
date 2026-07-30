@@ -2,7 +2,7 @@
 
 An [opencli](https://github.com/jackwener/opencli) plugin for [fxbaogao.com](https://www.fxbaogao.com) (Found Report) — search, browse, and read industry research reports from the command line.
 
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?logo=javascript&logoColor=F7DF1E)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 **English** · [中文](README.zh-CN.md)
 
@@ -15,16 +15,27 @@ An [opencli](https://github.com/jackwener/opencli) plugin for [fxbaogao.com](htt
 - **Industry browsing** — browse reports by industry category
 - **Report details** — extract key insights and data from individual reports (requires browser login)
 
-## Install
+## Requirements
+
+| Dependency | Purpose / Version |
+|------------|-------------------|
+| [opencli](https://github.com/jackwener/opencli) | >= 1.0.0 |
+| Chrome | Active fxbaogao.com login session (for the `report` command) |
+
+## Quick Start
+
+### 1. Clone
+
+```bash
+git clone https://github.com/turinglambdaai/opencli-plugin-fxbaogao.git
+cd opencli-plugin-fxbaogao
+```
+
+### 2. Install
 
 ```bash
 opencli plugin install github:jrtxio/opencli-plugin-fxbaogao
 ```
-
-## Requirements
-
-- [opencli](https://github.com/jackwener/opencli) >= 1.0.0
-- For `report` command: Chrome with an active fxbaogao.com login session
 
 ## Commands
 
@@ -76,6 +87,20 @@ The plugin uses opencli's `cli()` registration API. Each command is defined in a
 
 Most commands use `Strategy.PUBLIC` and call the fxbaogao.com public API directly. The `report` command uses `Strategy.COOKIE` with a headless browser to access report content behind login.
 
+## Project Structure
+
+```
+opencli-plugin-fxbaogao/
+├── opencli-plugin.json   # Plugin manifest
+├── package.json          # npm package metadata
+├── trending.js           # Trending keywords command
+├── suggest.js            # Search suggestions command
+├── facet.js              # Report distribution by industry/organization
+├── search.js             # Full-text search command
+├── industry.js           # Browse by industry command
+└── report.js             # Report details command (cookie strategy)
+```
+
 ## License
 
-This project does not currently include a license file.
+Licensed under the [MIT License](LICENSE).

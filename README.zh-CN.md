@@ -1,30 +1,41 @@
 # OpenCLI Plugin for fxbaogao
 
-[opencli](https://github.com/jackwener/opencli) 插件，用于 [发现报告](https://www.fxbaogao.com)（fxbaogao.com）-- 在命令行搜索、浏览和阅读行业研究报告。
+[opencli](https://github.com/jackwener/opencli) 插件，用于 [发现报告](https://www.fxbaogao.com)（fxbaogao.com）—— 在命令行搜索、浏览和阅读行业研究报告。
 
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?logo=javascript&logoColor=F7DF1E)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 [English](README.md) · **中文**
 
-## 功能特点
+## 功能特性
 
-- **热门关键词** —— 查看 fxbaogao.com 上的热门搜索
-- **搜索建议** —— 关键词自动补全
-- **分类浏览** —— 按行业或机构查看报告数量分布
-- **全文搜索** —— 按关键词搜索报告，支持排序
-- **行业浏览** —— 按行业分类浏览报告
-- **报告详情** —— 提取报告的核心观点和关键数据（需要浏览器登录）
+- **热门关键词** — 查看 fxbaogao.com 上的热门搜索
+- **搜索建议** — 关键词自动补全
+- **分类浏览** — 按行业或机构查看报告数量分布
+- **全文搜索** — 按关键词搜索报告，支持排序
+- **行业浏览** — 按行业分类浏览报告
+- **报告详情** — 提取报告的核心观点和关键数据（需要浏览器登录）
 
-## 安装
+## 环境要求
+
+| 依赖 | 用途 / 版本 |
+|------|-------------|
+| [opencli](https://github.com/jackwener/opencli) | >= 1.0.0 |
+| Chrome | 已登录 fxbaogao.com 的会话（用于 `report` 命令） |
+
+## 快速开始
+
+### 1. 克隆
+
+```bash
+git clone https://github.com/turinglambdaai/opencli-plugin-fxbaogao.git
+cd opencli-plugin-fxbaogao
+```
+
+### 2. 安装
 
 ```bash
 opencli plugin install github:jrtxio/opencli-plugin-fxbaogao
 ```
-
-## 环境要求
-
-- [opencli](https://github.com/jackwener/opencli) >= 1.0.0
-- 使用 `report` 命令需要 Chrome 浏览器并已登录 fxbaogao.com
 
 ## 命令一览
 
@@ -76,6 +87,20 @@ opencli fxbaogao search --keywords "AIGC" -f json
 
 大部分命令使用 `Strategy.PUBLIC`，直接调用 fxbaogao.com 的公开 API。`report` 命令使用 `Strategy.COOKIE` 配合无头浏览器访问登录后的报告内容。
 
+## 项目结构
+
+```
+opencli-plugin-fxbaogao/
+├── opencli-plugin.json   # 插件清单
+├── package.json          # npm 包元信息
+├── trending.js           # 热门关键词命令
+├── suggest.js            # 搜索建议命令
+├── facet.js              # 按行业/机构的报告分布
+├── search.js             # 全文搜索命令
+├── industry.js           # 按行业浏览命令
+└── report.js             # 报告详情命令（cookie 策略）
+```
+
 ## 许可证
 
-本项目暂未包含许可证文件。
+基于 [MIT 许可证](LICENSE) 授权。
