@@ -34,7 +34,7 @@ cd opencli-plugin-fxbaogao
 ### 2. 安装
 
 ```bash
-opencli plugin install github:jrtxio/opencli-plugin-fxbaogao
+opencli plugin install github:turinglambdaai/opencli-plugin-fxbaogao
 ```
 
 ## 命令一览
